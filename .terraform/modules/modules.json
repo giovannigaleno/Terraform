@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"mysql","Source":"./modules/mysql","Dir":"modules/mysql"},{"Key":"nginx","Source":"./modules/nginx","Dir":"modules/nginx"},{"Key":"nodejs","Source":"./modules/nodejs","Dir":"modules/nodejs"},{"Key":"redis","Source":"./modules/redis","Dir":"modules/redis"},{"Key":"traefik","Source":"./modules/traefik","Dir":"modules/traefik"}]}
