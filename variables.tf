@@ -2,7 +2,7 @@
 
 variable "nginx_port" {
   type    = number
-  default = 80
+  default = 8081
 }
 
 variable "nodejs_port" {
@@ -25,11 +25,10 @@ variable "mysql_root_password" {
   default = "root_password"
 }
 
-variable "redis_password" {                  # # # # # # #
+variable "redis_password" {
   type    = string
   default = "redis_password"
 }
-
 
 variable "mysql_user" {
   type = string
@@ -39,18 +38,18 @@ variable "mysql_password" {
   type = string
 }
 
-
 variable "mysql_database" {
   type = string
 }
 
+# Puertos de Traefik (cambiamos para evitar conflicto con Nginx)
+
 variable "traefik_http_port" {
   type    = number
-  default = 80
+  default = 8080  # Cambiamos de 80 a 8080
 }
-
 
 variable "traefik_https_port" {
   type    = number
-  default = 443
+  default = 8443  # Cambiamos de 443 a 8443
 }

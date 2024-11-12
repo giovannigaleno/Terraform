@@ -33,7 +33,7 @@ resource "docker_container" "mysql" {
 
   # Configuración de la red para integrarse con otros servicios
   networks_advanced {
-    name    = "web_network"
+    name    = var.network_name
     aliases = ["mysql"]
   }
 

@@ -24,7 +24,7 @@ resource "docker_container" "redis" {
 
   # Configuración de la red para integrarse con otros servicios
   networks_advanced {
-    name    = "web_network"
+    name    = var.network_name
     aliases = ["redis"]
   }
 

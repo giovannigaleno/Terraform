@@ -5,6 +5,12 @@ variable "mysql_port" {
   description = "Puerto externo para el contenedor MySQL"
 }
 
+
+variable "network_name" {
+  description = "web_network"
+  type = string
+}
+
 variable "mysql_root_password" {
   type        = string
   description = "Contraseña del usuario root de MySQL"

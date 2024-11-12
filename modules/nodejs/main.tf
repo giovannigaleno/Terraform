@@ -39,7 +39,7 @@ resource "docker_container" "nodejs" {
 
   # Configuración de red
   networks_advanced {
-    name    = "web_network"
+    name    = var.network_name
     aliases = ["nodejs"]
   }
 

@@ -20,7 +20,7 @@ resource "docker_container" "nginx" {
   image = docker_image.nginx.image_id
 
   ports {
-    internal = 80
+    internal = 8081
     external = var.nginx_port
   }
 
@@ -34,7 +34,7 @@ resource "docker_container" "nginx" {
 
   # Configuración de red si se requiere conectar servicios en red compartida
   networks_advanced {
-    name = "web_network"
+    name = var.network_name
     aliases = ["nginx"]
   }
 }

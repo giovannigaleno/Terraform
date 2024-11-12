@@ -6,6 +6,11 @@ variable "nodejs_port" {
   description = "Puerto externo en el que el contenedor de Node.js estará expuesto"
 }
 
+variable "network_name" {
+  description = "web_network"
+  type = string
+}
+
 variable "db_host" {
   type        = string
   default     = ""

@@ -1,0 +1,25 @@
+# traefik.toml - Configuración básica para Traefik
+
+[entryPoints]
+  [entryPoints.http]
+    address = ":80"
+  [entryPoints.https]
+    address = ":443"
+
+[api]
+  # Habilita el panel de administración de Traefik (solo para pruebas)
+  insecure = true
+  dashboard = true
+
+[providers]
+  [providers.docker]
+    endpoint = "unix:///var/run/docker.sock" # Conexión con el socket Docker
+    exposedByDefault = false
+
+# Opciones de redirección de HTTP a HTTPS
+[entryPoints.http.http]
+  [entryPoints.http.http.redirections]
+    [entryPoints.http.http.redirections.entryPoint]
+      to = "https"
+      scheme = "https"
+      permanent = true

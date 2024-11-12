@@ -16,9 +16,6 @@ resource "docker_image" "traefik" {
   name = "traefik:latest"  # Especifica la versión de Node.js que deseas usar
 }
 
-resource "docker_network" "traefik_network" {
-  name = "traefik_network"
-}
 
 resource "docker_container" "traefik" {
   name  = "traefik"
@@ -35,19 +32,21 @@ resource "docker_container" "traefik" {
   }
 
   mounts {
-    source      = "/home/giovanni/Documents/Terraform/Practica_3/modules/traefik/traefik.toml"
+    source = "/home/giovanni/Documents/Terraform/Practica_3/modules/traefik/traefik.toml"
     target = "/traefik.toml"
-    type        = "bind"
+    type   = "bind"
   }
 
-  # Usar la red traefik_network
+  # Redes avanzadas
   networks_advanced {
-    name = docker_network.traefik_network.name
+    name = var.traefik_network
   }
 
-  # Variables de entorno para Traefik
-  env = [
-    "TRAEFIK_API_INSECURE = true"
-  ]
+  networks_advanced {
+    name = var.web_network
+  }
 
+  env = [
+    "TRAEFIK_API_INSECURE=true"
+  ]
 }

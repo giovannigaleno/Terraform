@@ -5,3 +5,9 @@ variable "redis_port" {
   description = "Puerto externo para el contenedor Redis"
   default     = 6379
 }
+
+
+variable "network_name" {
+  description = "web_network"
+  type = string
+}
